@@ -2,12 +2,11 @@ import React, { useState, useEffect } from "react";
 import axios from "./axios";
 import requests from "./requests";
 import "./Banner.css";
-import YouTube from "react-youtube";
-import movieTrailer from "movie-trailer";
+
 
 function Bannner() {
   const [Movie, setMovie] = useState([]);
-  const [TrailerUrl, setTrailerUrl] = useState("");
+ 
   useEffect(() => {
     async function fetchData() {
       const request = await axios.get(requests.fetchTrending);
@@ -22,25 +21,6 @@ function Bannner() {
 
     fetchData();
   }, []);
-  const clickmovie = (Movie) => {
-    if (TrailerUrl) {
-      setTrailerUrl("");
-    } else {
-      movieTrailer(Movie?.title || Movie?.name || Movie?.original_name || "")
-        .then((url) => {
-          const urlParams = new URLSearchParams(new URL(url).search);
-          setTrailerUrl(urlParams.get("v"));
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }
-  };
-  const opts = {
-    height: "390",
-    width: "100%",
-    playerVars: { autoplay: 1 },
-  };
 
   console.log(Movie);
   return (
