@@ -40,13 +40,13 @@ function Bannner() {
           {Movie?.title || Movie?.name || Movie?.original_name}
         </div>
 
-        <div>
+        {/* <div>
           <button
             className="Buttons"
             >
             Play
           </button>
-        </div>
+        </div> */}
         <div className="description">{Movie.overview}</div>
       </div>
 
