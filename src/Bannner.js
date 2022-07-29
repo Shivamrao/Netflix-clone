@@ -43,10 +43,7 @@ function Bannner() {
         <div>
           <button
             className="Buttons"
-            onClick={() => {
-              clickmovie(Movie);
-            }}
-          >
+            >
             Play
           </button>
         </div>
